@@ -24,10 +24,11 @@ def main_loop():
 
 print("\n*Start*\n")
 
-t = thermostat.Thermostat(mode = 'heat')
+t = thermostat.Thermostat(mode='heat', desired_temp_f=75)
 
-for i in range(3):
+while t.get_desired_temp_f() is not read_temp_f():
 	main_loop()
-	fake_temp_f += 3 # temp rises
-
+	fake_temp_f += 1 # temp rises
+	t.adjust_temp_f(read_temp_f())
+	print()
 print("\n*End*\n")
