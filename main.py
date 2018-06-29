@@ -2,7 +2,8 @@
 # Micah Raney
 #
 # Contains core functionality for thermostat:
-# temperature detection, mode changes, and hardware interface.
+# temperature detection-adjustment loop,
+# hardware pinout assignments
 
 DEG = '°'
 
@@ -20,11 +21,16 @@ def main_loop():
 	print("Current Temp: " + str(current_temp_f) + DEG + " Fahrenheit")
 	print("Desired Temperature: " + str(desired_temp_f))
 
-#Program Start
+# Program Start
 
 print("\n*Start*\n")
 
-t = thermostat.Thermostat(mode='heat', desired_temp_f=75)
+fan = 1
+cold = 2
+heat = 3
+aux = 4
+pins = [ fan, cold, heat, aux ]
+t = thermostat.Thermostat(pins, 'heat', 75)
 
 while t.get_desired_temp_f() is not read_temp_f():
 	fake_temp_f += 1 # temp rises
