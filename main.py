@@ -33,7 +33,7 @@ pins = [ fan, cold, heat, aux ]
 t = thermostat.Thermostat(pins, 'cold', 'auto', 65)
 
 while t.mode is not 'off' and t.get_desired_temp_f() is not read_temp_f():
-	fake_temp_f -= 1 # temp rises
+	fake_temp_f -= 1 # temp lowers
 	main_loop()
 	t.adjust_temp_f(read_temp_f())
 	print()
