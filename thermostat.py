@@ -10,6 +10,7 @@ class Thermostat:
         self.fan_mode = fan_mode
         self.desired_temp_f = desired_temp_f
         self.fan_status='off'
+        self.heat_status='off'
         print("Current Mode: " + str(self.mode))
         print("Current Fan Mode: " + str(self.fan_mode))
         print("Desired Temperature: " + str(self.desired_temp_f))
@@ -23,29 +24,44 @@ class Thermostat:
 
     def go_inactive(self):
         self.turn_fan_off()
+        self.turn_heat_off()
+        #turn cold off
+        #turn aux off
 
     def turn_fan_on(self):
         if self.fan_status is not 'on':
             #turn fan on
-            print(self.pinout.fan_toggle(1))
-            print("fan turns on")
+            self.pinout.fan_toggle(1)
             self.fan_status = 'on'
             
     def turn_fan_off(self):
         if self.fan_status is not 'off':
             #turn fan off
-            print("fan turns off")
+            self.pinout.fan_toggle(0)
             self.fan_status = 'off'
+
+    def turn_heat_on(self):
+        if self.heat_status is not 'on':
+            #turn heat on
+            self.pinout.heat_toggle(1)
+            self.heat_status = 'on'
+            
+    def turn_heat_off(self):
+        if self.heat_status is not 'off':
+            #turn heat off
+            self.pinout.heat_toggle(0)
+            self.heat_status = 'off'
 
     def adjust_temp_f(self, current_temp_f):
         if (self.desired_temp_f == current_temp_f) or (self.mode == 'off'):
             self.go_inactive()
         elif self.mode == 'heat':
             if self.desired_temp_f < current_temp_f:
-                self.go_inactive()
+                self.turn_fan_off()
+                self.turn_heat_off()
             else:
                 self.turn_fan_on()
-                # turn on heat
+                self.turn_heat_on()
         elif self.mode == 'aux':
             if self.desired_temp_f < current_temp_f:
                 self.go_inactive()

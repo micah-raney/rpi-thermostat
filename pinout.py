@@ -11,17 +11,17 @@ class Pinout:
 
     def fan_toggle(self, state):
         # write HIGH or LOW to self.fan_pin depending on state being 0 or 1
-        return "Fan switched to " + str(state)
+        print("Fan switched to " + str(state))
     
     def cold_toggle(self, state):
         # write HIGH or LOW to self.cold_pin depending on state being 0 or 1
-        return "Cold switched to " + str(state)
+        print("Cold switched to " + str(state))
     
     def heat_toggle(self, state):
         # write HIGH or LOW to self.heat_pin depending on state being 0 or 1
-        return "Heat switched to " + str(state)
+        print("Heat switched to " + str(state))
     
     def aux_toggle(self, state):
         # write HIGH or LOW to self.aux_pin depending on state being 0 or 1
-        return "Aux switched to " + str(state)
+        print("Aux switched to " + str(state))
     
