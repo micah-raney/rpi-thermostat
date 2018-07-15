@@ -1,3 +1,4 @@
+# coding=UTF_8
 # rpi-thermostat core module
 # Micah Raney
 #
