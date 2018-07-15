@@ -3,11 +3,29 @@ import RPi.GPIO as GPIO    # Import GPIO handling library for Raspberry Pi
 
 GPIO.setmode(GPIO.BCM)     # Set pinout numbering system to BCM
 '''
-GPIO.setup(19, GPIO.OUT)   # Set pin 19 as an output pin
+pin1 = 23
+pin2 = 24
+pin3 = 25
+pin4 = 26
 
-GPIO.output(19, GPIO.HIGH) # Write high to pin 19
+GPIO.setup(pin1, GPIO.OUT)   # Set pin 1 as an output pin
+GPIO.setup(pin2, GPIO.OUT)   # Set pin 2 as an output pin
+GPIO.setup(pin3, GPIO.OUT)   # Set pin 3 as an output pin
+GPIO.setup(pin4, GPIO.OUT)   # Set pin 4 as an output pin
+
+GPIO.output(pin1, GPIO.HIGH) # Write high to pin 1
 time.sleep(1)              # Wait one second
-GPIO.output(19, GPIO.LOW)  # Write low to pin 19
+GPIO.output(pin1, GPIO.LOW)  # Write low to pin 1
+GPIO.output(pin2, GPIO.HIGH) # Write high to pin 2
+time.sleep(1)              # Wait one second
+GPIO.output(pin2, GPIO.LOW)  # Write low to pin 2
+GPIO.output(pin3, GPIO.HIGH) # Write high to pin 3
+time.sleep(1)              # Wait one second
+GPIO.output(pin3, GPIO.LOW)  # Write low to pin 3
+GPIO.output(pin4, GPIO.HIGH) # Write high to pin 4
+time.sleep(1)              # Wait one second
+GPIO.output(pin4, GPIO.LOW)  # Write low to pin 4
+time.sleep(1)
 
 GPIO.cleanup()             # Clean all GPIO connections, circuit draws, etc.
 '''
