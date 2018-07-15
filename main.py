@@ -26,10 +26,10 @@ def main_loop():
 
 print("\n*Start*\n")
 
-fan = 1
-cold = 2
-heat = 3
-aux = 4
+fan = 23
+cold = 24
+heat = 25
+aux = 26
 pins = [ fan, cold, heat, aux ]
 t = thermostat.Thermostat(pins, test_mode, 'auto', 75)
 
