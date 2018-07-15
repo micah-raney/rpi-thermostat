@@ -1,3 +1,17 @@
+import time
+import RPi.GPIO as GPIO    # Import GPIO handling library for Raspberry Pi
+'''
+GPIO.setmode(GPIO.BCM)     # Set pinout numbering system to BCM
+
+GPIO.setup(19, GPIO.OUT)   # Set pin 19 as an output pin
+
+GPIO.output(19, GPIO.HIGH) # Write high to pin 19
+time.sleep(1)              # Wait one second
+GPIO.output(19, GPIO.LOW)  # Write low to pin 19
+
+GPIO.cleanup()             # Clean all GPIO connections, circuit draws, etc.
+'''
+
 class Pinout:
     '''Handles hardware interaction and relay switching'''
     def __init__(self, fan_pin, cold_pin, heat_pin, aux_pin):
